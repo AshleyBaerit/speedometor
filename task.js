@@ -1,12 +1,11 @@
-function updateSpeedometer(){
-    const dial = document.getElementById("dial");
-    const meter = document.getElementById("meter");
+function updateSpeedometer() {
+    const dial = document.querySelector(".dial");
+    const meter = document.querySelector(".meter");
     const speed = Math.floor(Math.random() * 181);
-    
-    
     const rotation = (speed / 180) * 180;
-    dial.style.transform = "translate(32%, -20%) rotate(" + rotation + "deg)";
-    
+
+    dial.style.transform = "rotate(" + rotation + "deg)";
+
     if (speed <= 60) {
         meter.style.backgroundColor = "rgba(0, 225, 0, 0.2)";
     } else if (speed <= 120) {
@@ -14,7 +13,6 @@ function updateSpeedometer(){
     } else {
         meter.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
     }
-    
-    
-    }
-    setInterval(updateSpeedometer, 4000);
+}
+
+setInterval(updateSpeedometer, 1000);
