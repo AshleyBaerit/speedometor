@@ -4,10 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="task.css">
-    <title>Document</title>
-    <script src="./task.js" defer></script>
+    <!--<link rel="stylesheet" href="task.css">-->
+    <style>
+      .speedometer-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
 
+.meter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("img/meter.png");
+    background-size: cover;
+}
+
+.dial {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+ 
+    width: 160px;
+    height: 50px;
+    background-image: url("img/dial.png");
+    background-size: cover;
+    rotate: 10deg;
+    transform-origin: 83.2% center;
+    /* background-color: black; */
+}  
+    </style>
+
+    <title>Document</title>
+   <!-- <script src="./task.js" defer></script>-->
+   <script defer>
+    function updateSpeedometer() {
+    const dial = document.querySelector(".dial");
+    const meter = document.querySelector(".meter");
+    const speed = Math.floor(Math.random() * 181);
+    const rotation = 23/18* speed -35;
+
+
+    dial.style.transform = "rotate(" + rotation + "deg)";
+
+    if (speed <= 60) {
+        meter.style.backgroundColor = "rgba(0, 225, 0, 0.2)";
+    } else if (speed <= 120) {
+        meter.style.backgroundColor = "rgba(255, 165, 0, 0.2)";
+    } else {
+        meter.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+    }
+}
+
+setInterval(updateSpeedometer, 1000);
+   </script>
 </head>
 
 <body>
