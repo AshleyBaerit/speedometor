@@ -39,16 +39,16 @@
    <!-- <script src="./task.js" defer></script>-->
    <script defer>
     function updateSpeedometer() {
-    const dial = document.querySelector(".dial");
-    const meter = document.querySelector(".meter");
-    const speed = Math.floor(Math.random() * 181);
-    const rotation = 23/18* speed -35;
+    const dial = document.querySelector(".dial");// Выбираем элемент с классом "dial"
+    const meter = document.querySelector(".meter");// Выбираем элемент с классом "meter"
+    const speed = Math.floor(Math.random() * 181); // Генерируем случайное значение скорости от 0 до 180
+    const rotation = 23/18* speed -35;// Вычисляем угол поворота на основе скорости
 
 
-    dial.style.transform = "rotate(" + rotation + "deg)";
+    dial.style.transform = "rotate(" + rotation + "deg)";// Устанавливаем поворот элемента dial на заданный угол rotation
 
     if (speed <= 60) {
-        meter.style.backgroundColor = "rgba(0, 225, 0, 0.2)";
+        meter.style.backgroundColor = "rgba(0, 225, 0, 0.2)";// Изменяем цвет фона в зависимости от скорости
     } else if (speed <= 120) {
         meter.style.backgroundColor = "rgba(255, 165, 0, 0.2)";
     } else {
@@ -56,7 +56,7 @@
     }
 }
 
-setInterval(updateSpeedometer, 1000);
+setInterval(updateSpeedometer, 4000);//Вызываем функции updateSpeedometer дял обновления каждык 4 секунды
    </script>
 </head>
 
